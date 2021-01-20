@@ -37,6 +37,6 @@
     </style>
 </head>
 <body>
-    Hello semuanya
+    {!! $data->content !!}
 </body>
 </html>

@@ -22,8 +22,13 @@ class MailController extends Controller
                 'content'       => 'required',
             ]);
 
-            $sendEmail = Mail::to('ilhamsaputrajati@yopmail.com')->send(new MailService());
-            return $sendEmail;
+            $data = new \StdClass;
+            $data->from = $request->from;
+            $data->to = $request->to;
+            $data->subject = $request->subject;
+            $data->content = $request->content;
+
+            Mail::to($request->to)->send(new MailService($data));
         } catch (\Throwable $exception) {
             if ($exception instanceof ModelNotFoundException) {
                 return response()->json([

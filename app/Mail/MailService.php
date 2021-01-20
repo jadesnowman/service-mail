@@ -16,9 +16,9 @@ class MailService extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,12 +28,9 @@ class MailService extends Mailable
      */
     public function build()
     {
-        // return $this->from('example@sandbox24c0fda85b27477cb8981fe4daec7152.mailgun.org')
-        //     ->view('emails.template');
-        return $this
-            ->from('example@sandbox24c0fda85b27477cb8981fe4daec7152.mailgun.org')
-            ->subject('Testing')
-            ->view('emails.template');
-        // ->with(['data' => $this->data]);
+        return $this->from($this->data->from)
+            ->subject($this->data->subject)
+            ->view('emails.template')
+            ->with(['data' => $this->data]);
     }
 }
