@@ -18,4 +18,4 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/api/v1/send', 'MailController@sendEmail');
+$router->post('/api/v1/send', 'MailController@sendEmail');
