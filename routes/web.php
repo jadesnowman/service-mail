@@ -14,6 +14,7 @@
 */
 
 $router->get('/', function () use ($router) {
+    return 'servie-mail';
     return $router->app->version();
 });
 
