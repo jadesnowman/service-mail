@@ -7,6 +7,8 @@ use Illuminate\Validation\ValidationException;
 
 trait JsonResponse
 {
+    protected $version = '1.0';
+
     public function succcess($message, $data = "", $code = 200)
     {
         return response()->json([
@@ -14,7 +16,7 @@ trait JsonResponse
             'message'   => $message,
             'data'      => $data,
             'code'      => $code,
-            'version'   => '1.0'
+            'version'   => $this->version,
         ], $code);
     }
 
@@ -23,9 +25,9 @@ trait JsonResponse
         return response()->json([
             'success'   => false,
             'message'   => $message,
-            'data'      => $data,
+            "data"      => $data,
             'code'      => $code,
-            'version'   => '1.0'
+            'version'   => $this->version,
         ], $code);
     }
 
