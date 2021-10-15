@@ -33,6 +33,8 @@ trait JsonResponse
 
     public function handleErrorMessage($exception)
     {
+        \Sentry\captureMessage($exception);
+
         if ($exception instanceof GuzzleException) {
             $exception = json_decode((string) $exception->getResponse()->getBody());
             return $this->fail($exception->error, null, $exception->getCode());
