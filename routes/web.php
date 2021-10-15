@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 
 
 $router->group(['prefix' => '/api/v1', 'namespace' => 'V1'], function ($router) {
-    $router->post('/api/v1/send', 'MailController@sendEmail');
+    $router->post('/send', 'MailController@sendEmail');
 
     $router->group(['prefix' => '/auth', 'namespace' => 'Auth'], function ($router) {
         $router->post('/login', 'LoginController@login');
