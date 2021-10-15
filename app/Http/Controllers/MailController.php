@@ -29,6 +29,13 @@ class MailController extends Controller
             $data->content = $request->content;
 
             Mail::to($request->to)->send(new MailService($data));
+
+            return response()->json([
+                "message"   => "Queued. Thank you.",
+                "data"      => $data,
+                "version"   => "1.0",
+                "code"      => 200
+            ], 200);
         } catch (\Throwable $exception) {
             if ($exception instanceof ModelNotFoundException) {
                 return response()->json([
