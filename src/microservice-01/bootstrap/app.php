@@ -106,6 +106,7 @@ $app->register(Illuminate\Mail\MailServiceProvider::class);
 $app->register(Sentry\Laravel\ServiceProvider::class);
 $app->register(Sentry\Laravel\Tracing\ServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
+$app->register(Jenssegers\Mongodb\MongodbServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
