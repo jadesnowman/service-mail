@@ -10,7 +10,7 @@ services:
       - "8080:80"
     volumes:
       - ./.docker/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./src/service-mail:/var/www/service-mail
+      - ./src/microservice-01:/var/www/service-mail
     networks:
       - app-network
     depends_on:
@@ -26,7 +26,7 @@ services:
     networks:
       - app-network
     volumes:
-      - ./src/service-mail:/var/www/service-mail
+      - ./src/microservice-01:/var/www/service-mail
     environment:
       MAIL_MAILER: 
       MAILGUN_DOMAIN: 
