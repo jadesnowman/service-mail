@@ -9,6 +9,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "illuminate/mail": "^8.23",
         "illuminate/redis": "^8.64",
+        "jenssegers/mongodb": "^3.8",
         "laravel/lumen-framework": "^8.0",
         "predis/predis": "^1.1",
         "sentry/sentry-laravel": "^2.9"
