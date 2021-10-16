@@ -62,6 +62,7 @@ $app->singleton(
 $app->configure('app');
 $app->configure('mail');
 $app->configure('services');
+$app->configure('database');
 
 
 $app->alias('mailer', Illuminate\Mail\Mailer::class);
@@ -104,6 +105,7 @@ $app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 $app->register(Illuminate\Mail\MailServiceProvider::class);
 $app->register(Sentry\Laravel\ServiceProvider::class);
 $app->register(Sentry\Laravel\Tracing\ServiceProvider::class);
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

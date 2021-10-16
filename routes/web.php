@@ -14,10 +14,10 @@
 */
 
 $router->get('/', function () use ($router) {
-    return 'servie-mail';
-    return $router->app->version();
+    return 'servie-mail ' . $router->app->version();
 });
 
+$router->get('/redis', 'ExampleController@index');
 
 $router->group(['prefix' => '/api/v1', 'namespace' => 'V1'], function ($router) {
     $router->post('/send', 'MailController@sendEmail');
