@@ -12,7 +12,7 @@ trait JsonResponse
     public function succcess($message, $data = "", $code = 200)
     {
         return response()->json([
-            'success'   => false,
+            'success'   => true,
             'message'   => $message,
             'data'      => $data,
             'code'      => $code,

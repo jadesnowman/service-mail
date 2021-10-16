@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Traits\JsonResponse;
-use Predis\Client;
 use Illuminate\Support\Facades\Redis;
 
 class ExampleController extends Controller
@@ -15,10 +14,6 @@ class ExampleController extends Controller
      *
      * @return void
      */
-    public function __construct(Redis $redis)
-    {
-        $this->redis = $redis;
-    }
 
     //
     public function index()
@@ -26,9 +21,7 @@ class ExampleController extends Controller
         try {
             $data = Redis::get('foo');
 
-            return response()->json([
-                'success' => $data
-            ]);
+            return $this->succcess('Success!', $data);
         } catch (\Exception $exception) {
             return $this->handleErrorMessage($exception);
         }
