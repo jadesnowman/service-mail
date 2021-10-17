@@ -33,6 +33,14 @@ $router->group(['prefix' => '/api/v1', 'namespace' => 'V1'], function ($router) 
         $router->put('/', 'PostController@update');
         $router->delete('/', 'PostController@destroy');
     });
+
+    $router->group(['prefix' => '/customers'], function ($router) {
+        $router->get('/', 'CustomerController@index');
+        $router->get('/{id}', 'CustomerController@show');
+        $router->post('/', 'CustomerController@store');
+        $router->put('/', 'CustomerController@update');
+        $router->delete('/', 'CustomerController@destroy');
+    });
 });
 
 $router->get('/redis', 'ExampleController@index');
