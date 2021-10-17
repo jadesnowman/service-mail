@@ -73,7 +73,7 @@ class CustomerController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $result = $this->table->destroy($request->_id);
+            $result  = $this->table->where('CustomerID', $request->_id)->delete();
 
             return $this->succcess('Success!', $result);
         } catch (\Exception $exception) {
