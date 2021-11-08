@@ -11,3 +11,7 @@
 - PHP
 - Sqlsrv driver/extension
 - Mongodb driver/extension
+
+## HOW TO RUN
+`docker compose build .`
+`docker compose up`
